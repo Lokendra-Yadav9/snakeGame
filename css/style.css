@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Slackey&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.body {
+    width: 100%;
+    position: relative;
+    min-height: 100vh;
+    background: url("../snake\ game\ background.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#game-box {
+    width: 95vmin;
+    height: 80vmin;
+    margin: 10vh auto;
+    border: 2px solid black;
+    border-radius: 5px;
+    background: linear-gradient(to bottom, rgba(27, 216, 65, 0.686), rgba(191, 191, 191, 0.553));
+    display: grid;
+    grid-template-columns: repeat(18, 1fr);
+    grid-template-rows: repeat(18, 1fr);
+}
+
+.head {
+    /* background: linear-gradient(rgb(255, 255, 0), rgb(255, 0, 0)); */
+    background: url(/snakehead.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform: scale(1.2);
+    padding: 2px;
+
+    /* border: 2px solid rgb(223, 10, 39); */
+    border-radius: 10px;
+    /* animation: heads 0.3s ease-in-out  infinite; */
+}
+
+@keyframes heads {
+    0% {}
+
+    100% {}
+}
+
+.snake {
+    background: linear-gradient(#4583aa, yellow);
+    border-radius: 50%;
+    border-right: 1px dashed black;
+    border-left: 1px dashed black;
+    /* padding: 2px ; */
+}
+
+.food {
+    background: linear-gradient(rgb(252, 8, 106), rgb(255, 242, 1));
+    border-radius: 50%;
+    animation: heads 0.3s ease-in-out infinite;
+}
+
+@keyframes heads {
+    0% {
+        background: linear-gradient(rgb(252, 8, 106), rgb(255, 242, 1));
+    }
+
+    100% {
+        background: linear-gradient(rgb(252, 8, 215), rgb(128, 255, 1));
+    }
+
+}
+
+#score {
+    position: absolute;
+    top: 10vw;
+    right: 18vw;
+    font-size: 3vmin;
+    color: #2ed209;
+    font-family: 'Slackey', cursive;
+}
+#hiscoreBox{
+    position: absolute;
+    top: 12vw;
+    right: 15vw;
+    font-size: 3vmin;
+    color: #2ed209;
+    font-family: 'Slackey', cursive;
+}
+
+.btn button {
+    padding: 5px;
+    width: 5vw;
+    font-size: 1.1rem;
+}
+
+#up {
+    grid-area: up;
+}
+
+#down {
+    grid-area: down;
+}
+
+#lefts {
+    grid-area: lefts;
+}
+
+#right {
+    grid-area: rights;
+}
+
+.grid-buttons {
+    display: none;
+    grid-template-areas:
+        'up up'
+        'lefts rights'
+        'down down';
+    gap: 20px;
+    position: absolute;
+    right: 10vw;
+}
+
+@media screen and (max-width:800px) {
+
+    .btn button {
+        padding: 5px;
+        width: 15vw;
+        font-size: 1.1rem;
+    }
+
+    #up {
+        grid-area: up;
+    }
+
+    #down {
+        grid-area: down;
+    }
+
+    #lefts {
+        grid-area: lefts;
+    }
+
+    #right {
+        grid-area: rights;
+    }
+
+    .grid-buttons {
+        display: grid;
+        grid-template-areas:
+            'up up'
+            'lefts rights'
+            'down down';
+        gap: 20px;
+        position: absolute;
+        bottom: 10vh;
+        right: 30vw;
+    }
+
+    #score {
+        position: absolute;
+        top: 30vw;
+        right: 18vw;
+        font-size: 6vmin;
+        color: #2ed209;
+        font-family: 'Slackey', cursive;
+    }
+}
